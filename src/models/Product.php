@@ -1,6 +1,6 @@
 <?php
 
-require_once './src/models/Database.php';
+require_once './src/database/Database.php';
 
 class Product {
     private $conn;
