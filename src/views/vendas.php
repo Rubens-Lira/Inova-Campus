@@ -1,3 +1,6 @@
+<header class="header">
+      <h1>Inova Campus</h1>
+  </header>
 <div class="user-info">
     <div class="user-container">
         <img

@@ -7,17 +7,12 @@
     <title><?= $title ?></title>
 </head>
 <body>
-    <header>
-        <h1>Inova Campus</h1>
-    </header>
-    <main>
-        <?php
-            if (!empty($view)) {
-                include $view;
-            } else {
-                echo "<p>View não encontrada.</p>";
-            }
-        ?>
-    </main>
+    <?php
+        if (!empty($view)) {
+            include $view;
+        } else {
+            echo "<p>View não encontrada.</p>";
+        }
+    ?>
 </body>
 </html>

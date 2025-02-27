@@ -17,9 +17,9 @@ $id = isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] >= 0
 $offset = isset($_GET['offset']) && is_numeric($_GET['offset']) && $_GET['offset'] >= 0 
     ? (int) $_GET['offset'] 
     : 0;
-
+    
 $result = match ($action) {
-    'home' => ['view' => './src/views/home.php', 'title' => 'Página Inicial'],
+    'home' => ['view' => './src/views/home.php', 'title' => 'Página Inicial', 'css' => './src/assets/styles/index.css'],
     'about' => ['view' => './src/views/about.php', 'title' => 'Sobre'],
     "exemplo" => ['view' => './src/views/exemplo.html', 'title' => 'titulo', 'css' => './src/assets/styles/exemplo.css'],
     'login' => $UserController->login(),
@@ -34,7 +34,7 @@ $result = match ($action) {
     'logout' => ['view' => './src/config/logout.php', 'title' => 'Saindo'],
     'carrinho' => ['view' => './src/views/product/carrinho.php', 'title' => 'Carrinho'],
     'adicionar_carrinho' => ['view' => './src/views/product/adicionar_carrinho.php', 'title' => 'Carrinho'],
-    default => ['view' => './src/views/home.php', 'title' => 'Página Inicial']
+    default => ['view' => './src/views/home.php', 'title' => 'Página Inicial', 'css' => './src/assets/styles/index.css']
 };
 
 $view = $result['view'];
