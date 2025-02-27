@@ -21,6 +21,7 @@ $offset = isset($_GET['offset']) && is_numeric($_GET['offset']) && $_GET['offset
 $result = match ($action) {
     'home' => ['view' => './src/views/home.php', 'title' => 'Página Inicial'],
     'about' => ['view' => './src/views/about.php', 'title' => 'Sobre'],
+    "exemplo" => ['view' => './src/views/exemplo.html', 'title' => 'titulo', 'css' => './src/assets/styles/exemplo.css'],
     'login' => $UserController->login(),
     'user-create' => $UserController->create(),
     'user-edit' => $UserController->edit(),
@@ -37,6 +38,7 @@ $result = match ($action) {
 };
 
 $view = $result['view'];
+$css = $result['css'] ?? '';
 $title = $result['title'];
 $products = $result['data'] ?? '';
 $error = $result['error'] ?? '';
