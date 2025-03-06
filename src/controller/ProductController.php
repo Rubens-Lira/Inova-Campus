@@ -26,7 +26,7 @@ class ProductController {
                     header('Location: index.php?action=product-list');
                     exit;
                 } else {
-                    $error['query'] = 'Error:  ao cadastrar produto';
+                    $error['query'] = 'Error: Erro ao cadastrar produto';
                 }
             } catch (PDOException $e) {
                 $error['query'] = 'Error:  ' . $e->getMessage();

@@ -39,7 +39,7 @@ if (!$produtoExiste) {
 
 
 // Atualiza o cookie com os novos dados (expira em 7 dias)
-setcookie('carrinho', json_encode($carrinho), time() + (86400 * 7), "/");
+setcookie('carrinho', json_encode($carrinho), time() + 86400 * 7, "/");
 
 // Redireciona para a página do carrinho ou de produtos
 header("Location: index.php?action=carrinho");
