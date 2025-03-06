@@ -3,9 +3,12 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
+require_once './src/controller/CarrinhoController.php';
 require_once './src/controller/UserController.php';
 require_once './src/controller/ProductController.php';
 
+
+$CarrinhoController = new CarrinhoController();
 $UserController = new UserController();
 $ProductController = new ProductController();
 $action = $_GET['action'] ?? '';
@@ -32,14 +35,16 @@ $result = match ($action) {
     'user' => ['view' => './src/views/user/user.php', 'title' => 'Perfil'], // Perfil do usuário
     'vendas' => $ProductController->listAll($offset), // Lista os produtos de todos os vendedores
     'logout' => ['view' => './src/config/logout.php', 'title' => 'Saindo'],
-    'carrinho' => ['view' => './src/views/product/carrinho.php', 'title' => 'Carrinho'],
-    'adicionar_carrinho' => ['view' => './src/views/product/adicionar_carrinho.php', 'title' => 'Carrinho'],
+    'carrinho' => ['view' => './src/views/compras/carrinho.php', 'title' => 'Carrinho'],
+    'add_carrinho' => $CarrinhoController->addCarrinho(),
+    'rmCarrinho' => $CarrinhoController->rmCarrinho($id),
+    'adicionar_carrinho' => $CarrinhoController->addCarrinho(),
     default => ['view' => './src/views/home.php', 'title' => 'Página Inicial', 'css' => './src/assets/styles/index.css']
 };
 
-$view = $result['view'];
+$view = $result['view']?? '';
 $css = $result['css'] ?? '';
-$title = $result['title'];
+$title = $result['title'] ?? '';
 $products = $result['data'] ?? '';
 $error = $result['error'] ?? '';
 
