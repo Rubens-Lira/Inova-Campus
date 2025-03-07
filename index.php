@@ -32,7 +32,8 @@ $result = match ($action) {
     'product-list' => $ProductController->list($offset), // Lista os produtos do vendedor
     'product-edit' => $ProductController->edit($id), // Cria edita src/views/product/edit.php
     'product-read' => $ProductController->read($id),
-    'user' => ['view' => './src/views/user/user.php', 'title' => 'Perfil'], // Perfil do usuário
+    'product-delete' => $ProductController->delete($id),
+    'user' => ['view' => './src/views/user/user.php', 'title' => 'Perfil', 'css' => './src/assets/styles/usuario.css'], // Perfil do usuário
     'vendas' => $ProductController->listAll($offset), // Lista os produtos de todos os vendedores
     'logout' => ['view' => './src/config/logout.php', 'title' => 'Saindo'],
     'carrinho' => ['view' => './src/views/compras/carrinho.php', 'title' => 'Carrinho'],

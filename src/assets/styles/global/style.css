@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+}
+
+.container > * {
+  padding-inline: 20px;
+}
+
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #267222;
+  color: white;
+  text-align: start;
+  padding: 20px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  text-align: start;
+  gap: 12px;
+}
+
+nav a {
+  color: black;
+  text-decoration: underline;
+}
+
+.titulo {
+  font-weight: normal;
+  text-decoration: underline;
+  margin-block: 40px;
+}
+
+a {
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.profile {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+.profile a {
+  color: black;
+}
+
+.perfil {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  font-size: 14px;
+  margin: 5px 0;
+  text-align: start;
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+input:focus {
+  border: 1px solid #267222;
+  outline: 2px solid #267222;
+}
+
+textarea {
+  margin-bottom: 20px;
+}

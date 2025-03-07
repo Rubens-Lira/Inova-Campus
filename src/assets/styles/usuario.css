@@ -1,12 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    text-align: center;
-}
-
-.top-bar {
+/* .top-bar {
     background-color: #2e7d32;
     color: white;
     padding: 20px;
@@ -14,22 +6,21 @@ body {
     font-weight: bold;
     text-align: left;
     padding-left: 15px;
-}
+} */
 .nav-container {
+    width: 100%;
     display: flex;
     align-items: center; 
-    justify-content: space-between; 
+    gap: 12px;
     padding: 10px;
 }
 
 .back-link {
     display: block;  
     text-align: left; 
-    margin: 15px;
     color: #333;
-    text-decoration: none;
-    font-size: 14px;
-    padding-left: -10px; 
+    text-decoration: underline;
+    font-size: 16px;
 }
 
 .logout-btn {
@@ -51,9 +42,14 @@ body {
     margin-top: 10px;
     position: relative;
 }
+.profile > span {
+    position: absolute;
+    top: 70%;
+    left: 80%;
+}
 .profile img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover; 
     border: 3px solid #ddd; 
@@ -87,12 +83,21 @@ h3 {
     margin-top: 15px;
 }
 
+h3 a {
+    color: black;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
 .info-box {
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
     max-width: 350px;
-    margin: auto;
     text-align: left;
-    font-size: 14px;
+    margin-block: 24px;
+    font-size: 16px;
 }
 
 hr {
@@ -105,7 +110,7 @@ ul {
     list-style: none;
     padding: 0;
     margin-left: -100px; 
-    margin-top: 50px;
+    margin-top: 16px;
 }
 
 ul li {
@@ -115,5 +120,6 @@ ul li {
 ul li a {
     text-decoration: none;
     color: #0066cc;
-    font-size: 14px;
+    font-size: 16px;
+    text-decoration: underline;
 }

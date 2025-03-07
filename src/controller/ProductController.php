@@ -36,7 +36,8 @@ class ProductController {
         return[
             'view' => './src/views/product/create.php',
             'title' => 'Criar produto',
-            'error' => $error
+            'error' => $error,
+            'css' => './src/assets/styles/CadastroProdutos.css'
         ];
     }
 
@@ -54,7 +55,8 @@ class ProductController {
         return[
             'view' => './src/views/product/list.php',
             'title' => 'Meus produtos',
-            'data' => $products
+            'data' => $products,
+            'css' => './src/assets/styles/verProdutos.css'
         ];
     }
 
@@ -63,7 +65,8 @@ class ProductController {
         return[
             'view' => './src/views/vendas.php',
             'title' => 'Meus produtos',
-            'data' => $products
+            'data' => $products,
+            'css' => './src/assets/styles/vendasPagInicial.css'
         ];
     }
 
@@ -94,7 +97,16 @@ class ProductController {
             'view' => './src/views/product/edit.php',
             'title' => 'Editar produto',
             'error' => $error,
-            'data' => $product
+            'data' => $product,
+            'css' => './src/assets/styles/editarProdutos.css'
         ];
+    }
+
+    public function delete($id) {
+        $this->product->setId($id)
+        ->delete();
+
+        header("Location: index.php?action=product-list");
+        exit;
     }
 }

@@ -31,7 +31,8 @@ class UserController {
         }
         return [
             'view' => './src/views/user/create.php',
-            'title' => 'Cadastre-se'
+            'title' => 'Cadastre-se',
+            'css' => './src/assets/styles/CadastroLogin.css'
         ];
     }
 
@@ -54,7 +55,8 @@ class UserController {
         }
         return [
             'view' => './src/views/user/edit.php',
-            'title' => 'Perfil'
+            'title' => 'Perfil',
+            'css' => './src/assets/styles/editarDados.css'
         ];
     }
 
@@ -74,7 +76,8 @@ class UserController {
         }
         return [
             'view' => './src/views/login.php',
-            'title' => 'Entrar'
+            'title' => 'Entrar',
+            'css' => './src/assets/styles/login.css'
         ];
     }
 }

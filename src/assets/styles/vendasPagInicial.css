@@ -1,34 +1,27 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  box-sizing: border-box;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"); */
+/* 
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #ffffff;
   overflow-x: hidden;
-}
+} */
 
-.header {
+/* .header {
   background-color: #2e7d32;
   color: white;
   padding: 15px;
   text-align: left;
   font-size: small;
-}
+} */
 
 .user-info {
   display: flex;
   align-items: center; /* Corrigido */
   justify-content: space-between; /* Aplica espaçamento entre os elementos */
+  width: 100%;
   gap: 10px;
-  margin: 10px 0;
   padding: 30px;
 }
 
@@ -44,8 +37,12 @@ body {
   gap: 10px;
 }
 
+.user-container a {
+  color: black;
+}
+
 a {
-  text-decoration: none;
+  color: white;
 }
 
 .logout {
@@ -62,13 +59,19 @@ a {
 
 .categorias {
   text-align: center;
-  padding: 15px;
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
 }
 
 .categorias .item {
   border: 1px solid black;
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
+  flex: 1;
 }
 
 .categorias .item p {
@@ -83,8 +86,8 @@ a {
 }
 
 .categoria img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .mais-vendidos {

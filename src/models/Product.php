@@ -93,6 +93,14 @@ class Product {
         return $stmt->execute($data);
     }
 
+    public function delete() {
+        $table = $this->table;
+        $id = $this->getId();
+        $query = "DELETE FROM {$table} WHERE pdt_id = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(['id' => $id]);
+    }
+
     public function getConn() {
         return $this->conn;
     }
