@@ -1,9 +1,9 @@
 <?php
 class Database {
-    private $db_host = "localhost";
+    private $db_host = "127.0.0.1:3306";
     private $db_nome = "INOVA_CAMPUS";
     private $db_user = "root";
-    private $db_senha = "";
+    private $db_senha = "root";
     private $conn = null;
 
     public function getConnection(): PDO {
@@ -21,3 +21,7 @@ class Database {
         return $this->conn;
     }
 }
+
+$conn = new Database();
+
+$conn->getConnection();

@@ -7,7 +7,7 @@ body {
     text-align: center;
 }
 
-/* Barra superior */
+
 .top-bar {
     display: flex;
     justify-content: space-between;

@@ -1,7 +1,10 @@
-CREATE DATABASE inova_campus
-CHARACTER SET utf8mb4  
+drop DATABASE if exists inova_campus;
+CREATE DATABASE if not exists inova_campus
+CHARACTER SET utf8mb4
 COLLATE utf8mb4_general_ci;
-drop DATABASE inova_campus;
+
+use inova_campus;
+
 CREATE TABLE inv_users (
     usr_id INT AUTO_INCREMENT,
     usr_name VARCHAR(100) NOT NULL,

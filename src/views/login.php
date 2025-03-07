@@ -33,4 +33,7 @@
             <a href="index.php?action=user-create" class="btn cadastrar">Não possui conta?</a>
         </form>
     </main>
+    <section class="backgound">
+
+    </section>
 </div>

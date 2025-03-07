@@ -27,7 +27,7 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-top: 30px; /* Espaço para afastar do header */
+    margin-top: 30px; 
 }
 
 .info-box {

@@ -59,9 +59,9 @@ p {
 }
 
 .editar {
-    margin-top: 20px; /* Espaço entre a legenda e o botão */
+    margin-top: 20px;
     padding: 5px 20px;
-    background-color:white; /* Cor de fundo */
+    background-color:white; 
     color: red;
     border: 1px solid red;
     font-size: 12px;
@@ -70,12 +70,12 @@ p {
 
 .adicionarP {
     padding: 15px 20px;
-    background-color: green; /* Cor de fundo */
+    background-color: green; 
     color: white;
     border: none;
     border-radius: 10px;
     font-size: 12px;
-    text-transform: uppercase; /* Deixa o texto em caixa alta */
+    text-transform: uppercase;
     bottom: 20px;
     margin-top: 20px;
 }

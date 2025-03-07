@@ -74,13 +74,13 @@
       <?php endif ?>
     </label>
 
-    <p>Eu sou:</p>
+    <!-- <p>Eu sou:</p>
     <div class="radio-group">
       <input type="radio" id="cliente" name="function" value="cliente" checked>
       <label for="cliente">Cliente</label>
       <input type="radio" id="vendedor" name="function" value="vendedor">
       <label for="vendedor">Vendedor</label>
-    </div>
+    </div> -->
 
     <button type="submit" class="btn">Cadastrar</button>
   </form>

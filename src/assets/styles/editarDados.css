@@ -3,23 +3,7 @@
     flex-direction: column;
 }
 
-/* 
-.form-group {
-   display: flex;
-    align-items: center;
-    margin: 10px 0;
-}
 
-.form-group label {
-     width: 120px;
-}
-
-.form-group input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-} */
 
 h3 {
     font-weight: normal;
