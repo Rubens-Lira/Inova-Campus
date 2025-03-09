@@ -1,14 +1,17 @@
 <?php
-class Database {
+class Database
+{
     private $db_host = "127.0.0.1:3306";
     private $db_nome = "INOVA_CAMPUS";
     private $db_user = "root";
-    private $db_senha = "root";
+    private $db_senha = "";
     private $conn = null;
 
-    public function getConnection(): PDO {
+    public function getConnection(): PDO
+    {
         try {
-            $this->conn = new PDO("mysql:host={$this->db_host};dbname={$this->db_nome};charset=utf8mb4",
+            $this->conn = new PDO(
+                "mysql:host={$this->db_host};dbname={$this->db_nome};charset=utf8mb4",
                 $this->db_user,
                 $this->db_senha
             );
