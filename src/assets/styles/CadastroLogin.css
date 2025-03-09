@@ -1,89 +1,92 @@
-
-
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align:left;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+}
 
-  .header {
-    box-sizing: border-box;
-    width: 100%;
-    background-color: #267222;
-    color: white;
-    text-align: start;
-    font-size: 1em;
-  }
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #267222;
+  color: white;
+  text-align: start;
+  font-size: 1em;
+}
 
 h2 {
-    color: #2f7d2e;
-    font-size: 1.2em;
-    margin-block: 20px;
+  color: #2f7d2e;
+  font-size: 1.2em;
+  margin-block: 20px;
 }
 
 p a {
-    color: #2f7d2e;
+  color: #2f7d2e;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-self: auto;
+  display: flex;
+  flex-direction: column;
+  align-self: auto;
 }
 
 label {
-    font-size: 0.9em;
-    margin-top: 10px;
-    display: block;
+  font-size: 0.9em;
+  margin-top: 10px;
+  display: block;
 }
 
 input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#cliente:focus {
+  border: none;
+  outline: none;
 }
 
 .erro {
-    color: rgb(135, 6, 6);
+  color: rgb(135, 6, 6);
 }
 
 .radio-group {
-    display: flex;
-    justify-content:flex-start;
-    align-items: center;
-    gap: 10%;
-    margin-top: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10%;
+  margin-top: 5px;
 }
 
 .radio-group label {
-    margin-left: 0;
-    margin-right: 50px;
-    align-items: center;
-    gap: 8px;
-    font-size: 18px;
+  margin-left: 0;
+  margin-right: 50px;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
 }
 .radio-group input {
-    margin: 0;
-    transform: scale(1.5);
+  margin: 0;
+  transform: scale(1.5);
 }
 
 button:hover {
-    color: white;
-    background-color: #256522;
+  color: white;
+  background-color: #256522;
 }
 
 .btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
-    background-color: white;
-    color: #2d7a2d;
-    border: 1px solid #2d7a2d;
-    transition: 0.4s;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: white;
+  color: #2d7a2d;
+  border: 1px solid #2d7a2d;
+  transition: 0.4s;
 }
