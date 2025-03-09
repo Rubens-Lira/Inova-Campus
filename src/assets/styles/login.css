@@ -1,69 +1,78 @@
 .container {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .content {
-    text-align: center;
+  text-align: center;
+}
+
+nav {
+  position: relative;
+  top: -20px;
+}
+
+.header {
+  margin-bottom: 0px;
 }
 
 h2 {
-    color: #2d7a2d;
-    font-size: 18px;
-    margin-bottom: 5px;
+  color: #2d7a2d;
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .subtitulo {
-    font-size: 14px;
-    color: gray;
-    margin-bottom: 20px;
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 20px;
 }
 
 .esqueceu {
-    font-size: 12px;
-    color: gray;
-    text-align: right;
-    display: block;
-    margin-bottom: 15px;
+  font-size: 12px;
+  color: gray;
+  text-align: right;
+  display: block;
+  margin-bottom: 15px;
 }
 
 .radio-group {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .selecionar-tipo {
-    text-align: start;
+  text-align: start;
 }
 
 .btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
 }
 
 .entrar {
-    background-color: #2d7a2d;
-    color: white;
-    border: none;
+  background-color: #2d7a2d;
+  color: white;
+  border: none;
 }
 
 .cadastrar {
-    background-color: white;
-    color: #2d7a2d;
-    border: 1px solid #2d7a2d;
+  background-color: white;
+  color: #2d7a2d;
+  border: 1px solid #2d7a2d;
 }
 
 @media (min-width: 400px) {
-    .container {
-        max-width: 400px;
-    }
+  .container {
+    max-width: 400px;
+  }
 }
