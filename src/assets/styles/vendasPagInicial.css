@@ -1,7 +1,7 @@
 .user-info {
   display: flex;
-  align-items: center; 
-  justify-content: space-between; 
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   gap: 10px;
   padding: 30px;
@@ -28,7 +28,6 @@ a {
 }
 
 .logout {
-  
   border: 1px solid #c90c0f;
   padding: 5px 10px;
   border-radius: 5px;
@@ -122,8 +121,8 @@ a {
   padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: auto; 
-  align-self: flex-end; 
+  margin-top: auto;
+  align-self: flex-end;
 }
 
 #backgound {
@@ -133,15 +132,15 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: height .3s ease;
+  transition: height 0.3s ease;
   background-color: rgba(35, 34, 34, 0.9);
   overflow: hidden;
 }
 
 .modal {
-  width: 70vw; 
-  height: 45vh; 
-  position: relative; 
+  width: 70vw;
+  height: 45vh;
+  position: relative;
   border-radius: 16px;
   font-size: 12px;
   color: white;
@@ -154,24 +153,25 @@ a {
   text-align: center;
 }
 
-
 .modal h1 {
-  font-size: 18px; 
-  font-weight: bold; 
-  color: yellow; 
-  margin-bottom: 10px; 
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 16px;
+  margin-top: 10px;
+  letter-spacing: 1px;
 }
 
-
 .modal p {
-  font-size: 16px; 
-  font-style: italic; 
-  color: #fff; 
-  max-width: 80%; 
+  font-size: 16px;
+  font-style: italic;
+  color: #fff;
+  max-width: 80%;
   text-align: justify;
-  align-self: flex-start; 
-  margin-left: 10%; 
-  word-spacing: -1px;
+  align-self: flex-start;
+  margin-left: 10%;
+  word-spacing: 2px;
 }
 #x {
   position: absolute;
@@ -181,11 +181,11 @@ a {
   background-color: transparent;
   border: 2px solid white;
   color: white;
-  border-radius: 50%; 
-  font-size: 20px;
-  width: 30px; 
-  height: 30px; 
-  display: flex; 
+  border-radius: 50%;
+  font-size: 15px;
+  width: 20px;
+  height: 20px;
+  display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
