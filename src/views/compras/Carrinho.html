@@ -1,0 +1,132 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Carrinho</title>
+    
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../assets/styles/global/style.css">
+    
+    <!-- CSS Específico do Carrinho -->
+    <link rel="stylesheet" href="../../assets/styles/Carrinho.css">
+</head>
+<body>
+    <header>
+        <h1>INOVA CAMPUS</h1>
+    </header>
+    
+    <main>
+        <h2>Meu Carrinho</h2>
+
+        <div id="cart">
+            <div class="cart-item" data-id="1" data-price="2.5">
+               
+                <div class="item-details">
+                    <img src="../../assets/img/empada.jpg" alt="Empada">
+                    <div class="item-info">
+                        <h3>Empada do Borges</h3>
+                        <p>R$ 2.50</p>
+                    </div>
+                </div>
+        
+        
+                <div class="quantity">
+                    <button class="decrease">-</button>
+                    <span class="count">2</span>
+                    <button class="increase">+</button>
+                </div>
+            </div>
+
+            <div class="cart-item" data-id="2" data-price="3.5">
+                <img src="../../assets/img/empada.jpg" alt="Coxinha">
+                <div class="item-info">
+                    <h3>Coxinha</h3>
+                    <p>R$ 3.50</p>
+                </div>
+                <div class="quantity">
+                    <button class="decrease">-</button>
+                    <span class="count">2</span>
+                    <button class="increase">+</button>
+                </div>
+            </div>
+
+            <div class="cart-item" data-id="3" data-price="10.0">
+                <img src="../../assets/img/empada.jpg" alt="Bolo de Pote">
+                <div class="item-info">
+                    <h3>Bolo de Pote</h3>
+                    <p>R$ 10.00</p>
+                </div>
+                <div class="quantity">
+                    <button class="decrease">-</button>
+                    <span class="count">2</span>
+                    <button class="increase">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="total">
+            <h3>Total: <span id="total-price">R$ 32,00</span></h3>
+        </div>
+
+        <div class="whatsapp-container">
+            <button id="whatsapp-button">Encaminhar para o WhatsApp</button>
+        </div>
+    </main>
+
+    <script >
+document.addEventListener("DOMContentLoaded", function () {
+    const cartItems = document.querySelectorAll(".cart-item");
+    const totalPriceElement = document.getElementById("total-price");
+    const whatsappButton = document.getElementById("whatsapp-button");
+
+    function updateTotal() {
+        let total = 0;
+        cartItems.forEach(item => {
+            const price = parseFloat(item.getAttribute("data-price"));
+            const quantity = parseInt(item.querySelector(".count").innerText);
+            total += price * quantity;
+        });
+        totalPriceElement.innerText = `R$ ${total.toFixed(2)}`;
+    }
+
+    cartItems.forEach(item => {
+        const decreaseButton = item.querySelector(".decrease");
+        const increaseButton = item.querySelector(".increase");
+        const countElement = item.querySelector(".count");
+
+        decreaseButton.addEventListener("click", () => {
+            let count = parseInt(countElement.innerText);
+            if (count > 1) {
+                countElement.innerText = count - 1;
+                updateTotal();
+            }
+        });
+
+        increaseButton.addEventListener("click", () => {
+            let count = parseInt(countElement.innerText);
+            countElement.innerText = count + 1;
+            updateTotal();
+        });
+    });
+
+    whatsappButton.addEventListener("click", () => {
+        let message = "Pedido:\n";
+        cartItems.forEach(item => {
+            const name = item.querySelector("h3").innerText;
+            const quantity = item.querySelector(".count").innerText;
+            const price = parseFloat(item.getAttribute("data-price"));
+            message += `${name}: ${quantity}x - R$ ${(price * quantity).toFixed(2)}\n`;
+        });
+        message += `\nTotal: ${totalPriceElement.innerText}`;
+
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, "_blank");
+    });
+
+    updateTotal();
+});
+
+    </script>
+</body>
+</html>
+ 

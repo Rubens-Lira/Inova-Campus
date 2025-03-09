@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+header {
+    background-color: #2d7d32;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #2d7d32;
+    text-align: center;
+    padding: 20px
+}
+
+#cart {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #dff0d8;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.item-details {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.item-details img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.item-info {
+    flex: 1;
+    text-align: left;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity button {
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
+}
+
+.quantity .count {
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.total {
+    background: #dff0d8;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    align-items: center;
+    text-align: center;
+}
+
+#whatsapp-button {
+    background: red;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+#whatsapp-button:hover {
+    background: darkred;
+}
+.whatsapp-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  
+}
