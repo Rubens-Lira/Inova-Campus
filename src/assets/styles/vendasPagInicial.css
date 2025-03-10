@@ -24,7 +24,14 @@
 }
 
 a {
-  color: white;
+  /* color: white; */
+}
+
+.carrinho {
+  display: block;
+  height: 32px;
+  width: 32px;
+  background-image: url(/src/assets/img/carrinho-de-compras.png);
 }
 
 .logout {
@@ -125,9 +132,9 @@ a {
   align-self: flex-end;
 }
 
-#backgound {
+#background {
   position: absolute;
-  height: 100vh;
+  height: 0;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -135,6 +142,10 @@ a {
   transition: height 0.3s ease;
   background-color: rgba(35, 34, 34, 0.9);
   overflow: hidden;
+}
+
+#background.abrir {
+  height: 100vh;
 }
 
 .modal {

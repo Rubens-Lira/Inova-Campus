@@ -32,7 +32,7 @@ class Carrinho {
 
   public function rmCarrinho() {
     foreach ($this->carrinho as &$item) {
-      if ($item['id'] === $this->id && $this->units > 0) {
+      if ($item['id'] === $this->id && $item['quantidade'] > 0) {
         $item['quantidade'] -= $this->units;
         $item['valor_total'] = $item['quantidade'] * $item['preco'];
         $item['vendedor'] = $this->user;

@@ -113,7 +113,7 @@ class UserController {
                     ->setPassword($_POST["password"]);
                 
                 if ($this->user->login()) {
-                    header("Location: index.php?action=vendas");
+                    header("Location: index.php?action=vendas&login=true");
                     exit;
                 }
             }

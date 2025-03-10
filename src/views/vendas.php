@@ -7,7 +7,7 @@
       <img src="<?= $_SESSION['user']['img'] ?>" alt="Usuário" class="user-img" />
       <span class="user"><a href="index.php?action=user"><?= $_SESSION['user']['name'] ?></a></span>
     </div>
-    <a href="index.php?action=carrinho" style="color:black">Carrinho</a>
+    <a href="index.php?action=carrinho" class="carrinho"></a>
   </div>
 
   <section class="categorias">
@@ -54,7 +54,7 @@
       </div>
     <?php endforeach ?>
   </section>
-  <section id="backgound">
+  <section id="background">
     <article class="modal">
       <span id="x">
         X
@@ -66,8 +66,22 @@
 </div>
 <script>
   const fechar = document.querySelector("#x")
-  const back = document.querySelector("#backgound")
-  fechar.addEventListener("click", () => {
-    back.style.height = 0
-  })
+  const back = document.querySelector("#background")
+  const url = window.location.href
+  const res = url.split("?")
+  // const recaregou = sessionStorage.getItem("recarregou")
+
+  if (res[1] !== undefined) {
+    const param = res[1].split("&")
+
+    if (param[1]) {
+      abriModal()
+    }
+  }
+
+  function abriModal() {
+    back.classList.toggle("abrir")
+  }
+
+  fechar.addEventListener("click", abriModal)
 </script>

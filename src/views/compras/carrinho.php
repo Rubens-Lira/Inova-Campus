@@ -3,6 +3,15 @@
 </header>
 
 <main>
+  <nav>
+    <a href="index.php?action=vendas" class="back-link">Página inicial</a>
+    &#62;
+    <a href="index.php?action=carrinho" class="back-link">Carrinho</a>
+  </nav>
+  <div class="profile">
+    <img src="<?= $_SESSION['user']['img'] ?>" alt="Usuário" class="perfil" />
+    <p class="user-name"><a href="index.php?action=user"><?= $_SESSION['user']['name'] ?></a></p>
+  </div>
   <h2>Meu Carrinho</h2>
 
   <?php if (empty($_SESSION["carrinho"])): ?>
@@ -25,21 +34,21 @@
               <input type="hidden" name="image" value="<?= $item['imagem'] ?>">
               <input type="hidden" name="unit_price" value="<?= $item['preco'] ?>">
               <input type="hidden" name="user" value="<?= $item['vendedor'] ?>">
-              <button type="submit" class="btn">-</button>
+              <button type="submit" class="count">-</button>
             </form>
-            <span class="count"><?= $item['quantidade'] ?></span>
+            <span><?= $item['quantidade'] ?></span>
             <form method="post" action="index.php?action=add_carrinho">
               <input type="hidden" name="id" value="<?= $item['id'] ?>">
               <input type="hidden" name="name" value="<?= $item['nome'] ?>">
               <input type="hidden" name="image" value="<?= $item['imagem'] ?>">
               <input type="hidden" name="unit_price" value="<?= $item['preco'] ?>">
               <input type="hidden" name="user" value="<?= $item['vendedor'] ?>">
-              <button type="submit" class="btn">+</button>
+              <button type="submit" class="count">+</button>
             </form>
           </div>
-          <p>Valor Total: R$ <?= number_format($item['valor_total'], 2, ',', '.') ?></p>
+          <!-- <p>Valor Total: R$ <?//= number_format($item['valor_total'], 2, ',', '.') ?></p> -->
         </div>
-      <?php endforeach; ?>
+      <?php endforeach ?>
     </div>
 
     <div class="total">
