@@ -10,11 +10,11 @@
     <a href="index.php?action=user-edit" class="back-link">Editar</a>
   </nav>
   <div class="profile">
-    <img src="./src/assets/img/fotodeUsuario.jpg" alt="Usuário" class="perfil" />
+    <img src="<?= $_SESSION['user']['img'] ?>" alt="Usuário" class="perfil" />
     <p class="user-name"><a href="index.php?action=user"><?= $_SESSION['user']['name'] ?></a></p>
   </div>
   <h3>Editar informações básicas</h3>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     <label for="email">
       Email:
       <input type="email" id="email" name="email" placeholder="Digite seu email"
@@ -42,13 +42,12 @@
       <?php endif ?>
     </label>
 
-    <p>Eu sou:</p>
-    <div class="radio-group">
-      <input type="radio" id="cliente" name="function" value="cliente" checked>
-      <label for="cliente">Cliente</label>
-      <input type="radio" id="vendedor" name="function" value="vendedor">
-      <label for="vendedor">Vendedor</label>
-    </div>
+    <label id="drop-label" for="file-input">
+      <p id="drop-text" style="display: none;">Arraste uma imagem aqui ou clique para selecionar</p>
+      <input type="file" id="file-input" name="image" accept="image/*" hidden />
+      <img id="preview" src="<?= $_SESSION['user']['img'] ?>" alt="Pré-visualização da imagem"/>
+      <button id="remove-btn" type="button"">Remover imagem</button>
+    </label>
 
     <div class="buttons">
       <button type="reset" class="btn cancel">Descartar Alterações</button>

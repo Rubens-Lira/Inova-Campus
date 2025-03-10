@@ -139,7 +139,7 @@ a {
 
 .modal {
   width: 70vw;
-  height: 45vh;
+  height: 54vh;
   position: relative;
   border-radius: 16px;
   font-size: 12px;
@@ -173,10 +173,11 @@ a {
   margin-left: 10%;
   word-spacing: 2px;
 }
+
 #x {
   position: absolute;
-  top: 9%;
-  left: 90%;
+  top: 8%;
+  left: 92%;
   transform: translate(-50%, -50%);
   background-color: transparent;
   border: 2px solid white;
@@ -188,4 +189,5 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }

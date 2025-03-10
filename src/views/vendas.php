@@ -4,9 +4,10 @@
   </header>
   <div class="user-info">
     <div class="user-container">
-      <img src="./src/assets/img/fotodeUsuario.jpg" alt="Usuário" class="user-img" />
+      <img src="<?= $_SESSION['user']['img'] ?>" alt="Usuário" class="user-img" />
       <span class="user"><a href="index.php?action=user"><?= $_SESSION['user']['name'] ?></a></span>
     </div>
+    <a href="index.php?action=carrinho" style="color:black">Carrinho</a>
   </div>
 
   <section class="categorias">
@@ -37,11 +38,18 @@
     <h2>Mais vendidos da semana</h2>
     <?php foreach ($products as $p): ?>
       <div class="produto">
-        <img src="./src/assets/img/empada.jpg" alt="Empada do Borges" />
+        <img src="<?= $p['pdt_img'] ?>" alt="Empada do Borges" />
         <div class="info">
           <h3><?= $p['pdt_name'] ?></h3>
           <p class="preco"><?= $p['pdt_unit_price'] ?></p>
-          <button class="btn"><a href="index.php?action=product-read&id=<?= $p['pdt_id'] ?>">Comprar</a></button>
+          <form method="post" action="index.php?action=add_carrinho">
+            <input type="hidden" name="id" value="<?= $p['pdt_id'] ?>">
+            <input type="hidden" name="name" value="<?= $p['pdt_name'] ?>">
+            <input type="hidden" name="image" value="<?= $p['pdt_img'] ?>">
+            <input type="hidden" name="unit_price" value="<?= $p['pdt_unit_price'] ?>">
+            <input type="hidden" name="user" value="<?= $p['pdt_user'] ?>">
+            <button type="submit" class="btn">Adicionar ao carrinho</button>
+          </form>
         </div>
       </div>
     <?php endforeach ?>
@@ -52,7 +60,7 @@
         X
       </span>
       <h1>Seja bem vindo ao Inova Campus, <?= $_SESSION['user']['name'] ?>!🚀</h1>
-      <p>Aqui, inovação e qualidade caminham juntas para garantir produtos que fazem a diferença no seu dia a dia!</p>
+      <p>Que bom ter você por aqui! Um espaço feito para conectar nossa comunidade acadêmica com inovação, praticidade e segurança. Explore, compre, venda e faça parte dessa transformação!</p>
     </article>
   </section>
 </div>

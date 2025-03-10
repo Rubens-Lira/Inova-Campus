@@ -8,7 +8,7 @@
     <a href="index.php?action=user-create">Cadastro</a>
   </nav>
   <h2>Falta pouco para começar a vender</h2>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     <label for="email">
       Email:
       <input type="email" id="email" name="email" placeholder="Digite seu email"
@@ -54,14 +54,19 @@
       <?php endif ?>
     </label>
 
-    <p>Eu sou:</p>
-    <div class="radio-group">
-      <input type="radio" id="cliente" name="function" value="cliente" checked>
-      <label for="cliente">Cliente</label>
-      <input type="radio" id="vendedor" name="function" value="vendedor">
-      <label for="vendedor">Vendedor</label>
-    </div>
+    <label id="drop-label" for="file-input">
+      <p id="drop-text">Arraste uma imagem aqui ou clique para selecionar</p>
+      <input type="file" id="file-input" name="image" accept="image/*" hidden />
+      <img id="preview" src="" alt="Pré-visualização da imagem" style="display: none;" />
+      <button id="remove-btn" type="button" style="display: none;">Remover imagem</button>
+    </label>
 
     <button type="submit" class="btn">Cadastrar</button>
   </form>
+  <div class="erros">
+        <?php if (isset($error['query'])): ?>
+            <span class="erro"><?= htmlspecialchars($error['query']) ?></span>
+            <?php $error = [] ?>
+        <?php endif ?>
+    </div>
 </div>

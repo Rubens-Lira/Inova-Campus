@@ -15,10 +15,26 @@ class ProductController {
     public function create() {
         $error = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $diretorio = "./src/assets/uploads/products/";
+
+            // Gera um nome baseado na data e hora + um identificador único
+            $nomeArquivo = date("Ymd_His") . "_" . uniqid() . "." . pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+
+            // Validação do tipo de arquivo (somente imagens JPG, PNG, GIF)
+            $extensao = strtolower(pathinfo($nomeArquivo, PATHINFO_EXTENSION));
+            $extensoesPermitidas = ['jpg', 'jpeg', 'png', 'gif'];
+            if (!in_array($extensao, $extensoesPermitidas)) {
+                die("Erro: Apenas arquivos de imagem são permitidos.");
+            }
+
+            $caminhoArquivo = "$diretorio$nomeArquivo";
+
+            // Move o arquivo para o diretório de uploads
+            move_uploaded_file($_FILES["image"]["tmp_name"], $caminhoArquivo);
+
             $this->product->setName($_POST['name'])
                 ->setPrice($_POST['price'])
-                ->setUnits($_POST['units'])
-                ->setDescription($_POST['description'])
+                ->setimage($caminhoArquivo)
                 ->setUser($_SESSION['user']['id']);
 
             try {
@@ -37,7 +53,8 @@ class ProductController {
             'view' => './src/views/product/create.php',
             'title' => 'Criar produto',
             'error' => $error,
-            'css' => './src/assets/styles/CadastroProdutos.css'
+            'css' => './src/assets/styles/CadastroProdutos.css',
+            'js' => './src/assets/js/img.js'
         ];
     }
 
@@ -75,10 +92,13 @@ class ProductController {
         $product = $this->product->read($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $route = $this->product->getImageRoute($id);
+            $img = $route['pdt_img'];
+            move_uploaded_file($_FILES["image"]["tmp_name"], $img);
+
             $this->product->setName($_POST['name'])
                 ->setPrice($_POST['price'])
-                ->setUnits($_POST['units'])
-                ->setDescription($_POST['description'])
+                ->setimage($img)
                 ->setId($id);
 
             try {
@@ -98,13 +118,14 @@ class ProductController {
             'title' => 'Editar produto',
             'error' => $error,
             'data' => $product,
-            'css' => './src/assets/styles/editarProdutos.css'
+            'css' => './src/assets/styles/editarProdutos.css',
+            'js' => './src/assets/js/img.js'
         ];
     }
 
     public function delete($id) {
         $this->product->setId($id)
-        ->delete();
+            ->delete();
 
         header("Location: index.php?action=product-list");
         exit;

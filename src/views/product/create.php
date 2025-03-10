@@ -12,14 +12,14 @@
         <a href="index.php?action=product-create">Criar</a>
     </nav>
     <div class="profile">
-        <img src="./src/assets/img/fotodeUsuario.jpg" alt="Usuário" class="perfil" />
+        <img src="<?= $_SESSION['user']['img'] ?>" alt="Usuário" class="perfil" />
         <p class="user-name"><a href="index.php?action=user"><?= $_SESSION['user']['name'] ?></a></p>
     </div>
 
     <h2 class="titulo">Comece a empreender</h2>
     <p>Cadastre os seus produtos</p>
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <label for="nome">Nome do Produto:</label>
         <input
             type="text"
@@ -34,22 +34,14 @@
             id="valor" step="0.01" min="0" placeholder="Digite valor do produto"
             value="<?= $_POST['price'] ?? 0 ?>" />
 
-        <label for="quantidade">Quantidade:</label>
-        <input
-            type="text"
-            name="units"
-            id="quantidade"
-            placeholder="Digite a quantidade do produto"
-            value="<?= $_POST['units'] ?? 0 ?>" />
+        <label id="drop-label" for="file-input">
+            <p id="drop-text">Arraste uma imagem aqui ou clique para selecionar</p>
+            <input type="file" id="file-input" name="image" accept="image/*" hidden />
+            <img id="preview" src="" alt="Pré-visualização da imagem" style="display: none;" />
+            <button id="remove-btn" type="button" style="display: none;">Remover imagem</button>
+        </label>
 
-        <label for="description">Description:</label>
-        <textarea name="description" id="description">
-        <?= $_POST['description'] ?? '' ?>
-        </textarea>
-        <!-- <label for="imagem">Upload de Imagem:</label>
-        <input type="file" id="imagem"> -->
-
-        <button type="submit">Cadastrar</button>
+        <button type=" submit">Cadastrar</button>
     </form>
     <div class="erros">
         <?php if (isset($error['query'])): ?>

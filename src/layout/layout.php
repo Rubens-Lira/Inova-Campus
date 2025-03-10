@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/assets/styles/global/style.css">
     <link rel="stylesheet" href="<?= $css ?>">
+    <script defer src="<?= $js ?>"></script>
     <title><?= $title ?></title>
 </head>
 <body>

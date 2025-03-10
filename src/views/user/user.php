@@ -8,10 +8,9 @@
         <a href="index.php?action=user" class="back-link">Perfil</a>
     </nav>
     <div class="profile">
-        <img src="./src/assets/img/fotodeUsuario.jpg" alt="Usuário" class="avatar">
+        <img src="<?= $_SESSION['user']['img'] ?>" alt="Usuário" class="avatar">
         <span class="edit-icon"></span>
         <p class="user-name"><?= $_SESSION['user']['name'] ?><span class="edit-icon"></span></p>
-        <p class="user-category">categoria: <?= $_SESSION['user']['function'] ?></p>
     </div>
 
     <h3><a href="index.php?action=user-edit">Informações Básicas <span class="edit-icon">✏️</span></a></h3>
@@ -23,13 +22,11 @@
     </div>
 
     <hr>
-    <?php if ($_SESSION['user']['function'] === 'vendedor'): ?>
-        <h3>Informações do Vendedor</h3>
-        <ul>
-            <!-- <li><a href="#">Número de vendas e avaliações</a></li> -->
-            <li><a href="index.php?action=product-list&offset=0">Veja seus produtos</a></li>
+    <h3>Informações do Vendedor</h3>
+    <ul>
+        <!-- <li><a href="#">Número de vendas e avaliações</a></li> -->
+        <li><a href="index.php?action=product-list&offset=0">Veja seus produtos</a></li>
 
-        </ul>
-    <?php endif ?>
+    </ul>
     <a href="index.php?action=logout" class="logout-btn">Sair da conta</a>
 </div>

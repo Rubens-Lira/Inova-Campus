@@ -35,15 +35,18 @@ $result = match ($action) {
     'user' => ['view' => './src/views/user/user.php', 'title' => 'Perfil', 'css' => './src/assets/styles/usuario.css'], // Perfil do usuário
     'vendas' => $ProductController->listAll($offset), // Lista os produtos de todos os vendedores
     'logout' => ['view' => './src/config/logout.php', 'title' => 'Saindo'],
-    'carrinho' => ['view' => './src/views/compras/carrinho.php', 'title' => 'Carrinho'],
+    'carrinho' => ['view' => './src/views/compras/carrinho.php', 'title' => 'Carrinho', 'css' => './src/assets/styles/Carrinho.css'],
     'add_carrinho' => $CarrinhoController->addCarrinho(),
-    'rmCarrinho' => $CarrinhoController->rmCarrinho($id),
+    'rm_carrinho' => $CarrinhoController->rmCarrinho(),
+    // 'add' => $CarrinhoController->add($id),
+    // 'rm' => $CarrinhoController->rm($id),
     'adicionar_carrinho' => $CarrinhoController->addCarrinho(),
     default => ['view' => './src/views/home.php', 'title' => 'Página Inicial', 'css' => './src/assets/styles/index.css']
 };
 
 $view = $result['view']?? '';
 $css = $result['css'] ?? '';
+$js = $result['js'] ?? '';
 $title = $result['title'] ?? '';
 $products = $result['data'] ?? '';
 $error = $result['error'] ?? '';

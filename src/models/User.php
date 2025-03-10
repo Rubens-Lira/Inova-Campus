@@ -10,7 +10,7 @@ class User {
     private string $email;
     private string $password;
     private string $tel;
-    private string $function;
+    private string $image;
 
     public function __construct($db) {
         $this->setConn($db); 
@@ -33,13 +33,13 @@ class User {
 
     public function create() {
         $tabela = $this->getTabela();
-    
+
         if ($this->check()) {
             return false;
         }
 
-        $query = "INSERT INTO {$tabela} (usr_name, usr_email, usr_password, usr_phone, usr_function)
-            VALUES (:name, :email, :password, :tel, :function)";
+        $query = "INSERT INTO {$tabela} (usr_name, usr_email, usr_password, usr_phone, usr_img)
+            VALUES (:name, :email, :password, :tel, :image)";
         $stmt = $this->conn->prepare($query);
         $hash = password_hash($this->getPassword(), PASSWORD_DEFAULT);
 
@@ -48,7 +48,7 @@ class User {
             'email' => $this->getEmail(),
             'password' => $hash, 
             'tel' => $this->getTel(),
-            'function' => $this->getFunction()
+            'image' => $this->getImage()
         ];
         try {
             return $stmt->execute($data);
@@ -61,12 +61,8 @@ class User {
     
     public function edit() {
         $tabela = $this->getTabela();
-    
-        // if ($this->check() && $_SESSION['user']['email'] === $_POST['email']) {
-        //     return false;
-        // }
 
-        $query = "UPDATE {$tabela} SET usr_name = :name, usr_email = :email, usr_phone = :tel, usr_function = :function
+        $query = "UPDATE {$tabela} SET usr_name = :name, usr_email = :email, usr_phone = :tel, usr_img = :img
             WHERE usr_id = :id";
         $stmt = $this->conn->prepare($query);
 
@@ -74,23 +70,11 @@ class User {
             'name' => $this->getName(),
             'email' => $this->getEmail(),
             'tel' => $this->getTel(),
-            'function' => $this->getFunction(),
-            'id' => $this->getId()
+            'img' => $this->getImage(),
+            'id' => $this->getId(),
         ];
 
-        try {
-            if ($stmt->execute($data)) {
-                $_SESSION['user'] = $data;
-                return true;
-            } else {
-                return false;
-            }
-
-        } catch (PDOException $e) {
-            // $_POST['error'] = $e->getMessage();
-            error_log('Erro ao editar registro na tabela ' . $tabela . ': ' . $e->getMessage());
-            return false;
-        }
+        return $stmt->execute($data) ? $_SESSION['user'] = $data : false;
     }
 
     public function login(): bool {
@@ -106,7 +90,7 @@ class User {
                 'email' => $user['usr_email'],
                 'name' => $user['usr_name'],
                 'tel' => $user['usr_phone'],
-                'function' => $user['usr_function']
+                'img' => $user['usr_img']
             ];
             $_SESSION['user'] = $user;
     
@@ -178,12 +162,12 @@ class User {
         return $this;
     }
 
-    public function getFunction(): string {
-        return $this->function;
+    public function getImage(): string {
+        return $this->image;
     }
 
-    public function setFunction(string $function): self {
-        $this->function = $function;
+    public function setImage(string $image): self {
+        $this->image = $image;
         return $this;
     }
 }

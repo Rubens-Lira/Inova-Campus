@@ -8,9 +8,8 @@ class Product {
     private int $id;
     private string $name;
     private float $price;
-    private int $units;
-    private string $description;
-    private int  $user;
+    private string $image;
+    private int $user;
 
     public function __construct($db) {
         $this->setConn($db); 
@@ -19,14 +18,13 @@ class Product {
     public function create() {
         $table = $this->table;
 
-        $query = "INSERT INTO {$table} (pdt_name, pdt_unit_price, pdt_units, pdt_description, pdt_user)
-            VALUES (:name, :price, :units, :description, :user)";
+        $query = "INSERT INTO {$table} (pdt_name, pdt_unit_price, pdt_img, pdt_user)
+            VALUES (:name, :price, :image, :user)";
         $stmt = $this->conn->prepare($query);
         $data = [
             'name' => $this->getName(),
             'price' => $this->getPrice(),
-            'units' => $this->getUnits(),
-            'description' => $this->getDescription(),
+            'image' => $this->getimage(),
             'user' => $this->getUser()
         ];
         return $stmt->execute($data);
@@ -36,6 +34,19 @@ class Product {
         $table = $this->table;
     
         $query = "SELECT * FROM {$table} WHERE pdt_id = :id LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        
+        $stmt->execute();
+        
+        return $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
+    }
+
+    public function getImageRoute($id) {
+        $table = $this->table;
+    
+        $query = "SELECT pdt_img FROM {$table} WHERE pdt_id = :id LIMIT 1";
         $stmt = $this->conn->prepare($query);
         
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -59,7 +70,7 @@ class Product {
         return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
     }
     
-    public function listAll($offset = 0) {
+    public function listAll($offset = 0): mixed {
         $table = $this->table;
     
         $query = "SELECT * FROM {$table} ORDER BY pdt_name ASC LIMIT 20 OFFSET :offset";
@@ -78,15 +89,14 @@ class Product {
 
         if (!$this->read($id)) return false;
 
-        $query = "UPDATE {$table} SET pdt_name = :name, pdt_unit_price = :price, pdt_units = :units, pdt_description = :description
+        $query = "UPDATE {$table} SET pdt_name = :name, pdt_unit_price = :price, pdt_img = :image
             WHERE pdt_id = :id";
         $stmt = $this->conn->prepare($query);
 
         $data = [
             'name' => $this->getName(),
             'price' => $this->getPrice(),
-            'units' => $this->getUnits(),
-            'description' => $this->getDescription(),
+            'image' => $this->getimage(),
             'id' => $id
         ];
 
@@ -137,21 +147,12 @@ class Product {
         return $this;
     }
 
-    public function getUnits(): int {
-        return $this->units;
+    public function getimage(): string {
+        return $this->image;
     }
 
-    public function setUnits(int $units): self {
-        $this->units = $units;
-        return $this;
-    }
-
-    public function getDescription(): string {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): self {
-        $this->description = strip_tags($description);
+    public function setimage(string $image): self {
+        $this->image = strip_tags($image);
         return $this;
     }
 

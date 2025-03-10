@@ -108,6 +108,40 @@ input:focus {
   outline: 2px solid #267222;
 }
 
-textarea {
-  margin-bottom: 20px;
+#drop-label {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+#drop-label.dragover {
+  background-color: #f0f8ff;
+  border-color: #007bff;
+}
+
+#remove-btn {
+  margin-top: 10px;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#remove-btn:hover {
+  background-color: #cc0000;
+}
+
+#preview {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
 }
