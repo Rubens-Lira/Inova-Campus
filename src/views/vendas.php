@@ -10,30 +10,6 @@
     <a href="index.php?action=carrinho" class="carrinho"></a>
   </div>
 
-  <section class="categorias">
-    <h2>Categorias</h2>
-    <div class="row">
-      <div class="icons">
-        <div class="categoria item">
-          <img src="./src/assets/img/lanche.png" alt="Lanches" />
-          <p>Lanches</p>
-        </div>
-        <div class="categoria item">
-          <img src="./src/assets/img/artesanato.jpg" alt="Artesanato" />
-          <p>Artesanato</p>
-        </div>
-        <div class="categoria item">
-          <img src="./src/assets/img/platinha.png" alt="Plantinhas" />
-          <p>Plantinhas</p>
-        </div>
-        <div class="categoria item">
-          <img src="./src/assets/img/cupcake.png" alt="Doces" />
-          <p>Doces</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="mais-vendidos">
     <h2>Mais vendidos da semana</h2>
     <?php foreach ($products as $p): ?>
