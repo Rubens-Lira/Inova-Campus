@@ -38,6 +38,7 @@ $result = match ($action) {
     'carrinho' => ['view' => './src/views/compras/carrinho.php', 'title' => 'Carrinho', 'css' => './src/assets/styles/Carrinho.css'],
     'add_carrinho' => $CarrinhoController->addCarrinho(),
     'rm_carrinho' => $CarrinhoController->rmCarrinho(),
+    'limpar' => $CarrinhoController->limparCarrinho(),
     // 'add' => $CarrinhoController->add($id),
     // 'rm' => $CarrinhoController->rm($id),
     'adicionar_carrinho' => $CarrinhoController->addCarrinho(),

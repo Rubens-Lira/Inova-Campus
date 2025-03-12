@@ -34,6 +34,7 @@
               <input type="hidden" name="image" value="<?= $item['imagem'] ?>">
               <input type="hidden" name="unit_price" value="<?= $item['preco'] ?>">
               <input type="hidden" name="user" value="<?= $item['vendedor'] ?>">
+              <input type="hidden" name="phone" value="<?= $item['tel'] ?>">
               <button type="submit" class="count">-</button>
             </form>
             <span><?= $item['quantidade'] ?></span>
@@ -43,10 +44,10 @@
               <input type="hidden" name="image" value="<?= $item['imagem'] ?>">
               <input type="hidden" name="unit_price" value="<?= $item['preco'] ?>">
               <input type="hidden" name="user" value="<?= $item['vendedor'] ?>">
+              <input type="hidden" name="phone" value="<?= $item['tel'] ?>">
               <button type="submit" class="count">+</button>
             </form>
           </div>
-          <!-- <p>Valor Total: R$ <?//= number_format($item['valor_total'], 2, ',', '.') ?></p> -->
         </div>
       <?php endforeach ?>
     </div>
@@ -58,6 +59,7 @@
 
   <div class="whatsapp-container">
     <button id="whatsapp-button">Encaminhar para o WhatsApp</button>
+    <a href="index.php?action=limpar">Limpar Carrinho</a>
   </div>
 </main>
 
@@ -67,15 +69,22 @@
 
     whatsappButton.addEventListener("click", () => {
       let message = "Pedido:\n";
+      let telefone = ""; // Inicializa a variável telefone
+
       <?php if (!empty($_SESSION["carrinho"])): ?>
         <?php foreach ($_SESSION["carrinho"] as $item): ?>
           message += "<?= htmlspecialchars($item['nome']) ?>: <?= $item['quantidade'] ?>x - R$ <?= number_format($item['valor_total'], 2, ',', '.') ?>\n";
+          telefone = "55<?= $item['tel'] ?>"; // Pega o telefone do primeiro item
         <?php endforeach; ?>
         message += "\nTotal: R$ <?= number_format(array_sum(array_column($_SESSION["carrinho"], 'valor_total')), 2, ',', '.') ?>";
       <?php endif; ?>
 
-      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, "_blank");
+      if (telefone) {
+        const whatsappUrl = `https://wa.me/${telefone}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, "_blank");
+      } else {
+        alert("Número de telefone não encontrado.");
+      }
     });
 
     <?php if (isset($_SESSION['usuario'])): ?>

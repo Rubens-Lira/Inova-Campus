@@ -3,13 +3,10 @@
 require_once "./src/models/Carrinho.php";
 
 class CarrinhoController {
-  private $db;
   private Carrinho $carrinho;
 
   public function __construct() {
-    $database = new Database();
-    $this->db = $database->getConnection();
-    $this->carrinho = new Carrinho($this->db);
+    $this->carrinho = new Carrinho();
   }
 
   public function addCarrinho() {
@@ -19,7 +16,8 @@ class CarrinhoController {
       ->setName($_POST["name"])
       ->setImage($_POST["image"])
       ->setUnitPrice($_POST["unit_price"])
-      ->setUser($_POST["user"]);
+      ->setUser($_POST["user"])
+      ->setPhone($_POST["phone"]);
       
       $this->carrinho->addCarrinho();
       header("Location: index.php?action=carrinho");
@@ -34,12 +32,17 @@ class CarrinhoController {
       ->setName($_POST["name"])
       ->setImage($_POST["image"])
       ->setUnitPrice($_POST["unit_price"])
-      ->setUser($_POST["user"]);
+      ->setUser($_POST["user"])
+      ->setPhone($_POST["phone"]);
       
       $this->carrinho->rmCarrinho();
       header("Location: index.php?action=carrinho");
       exit;
     }
+  }
+
+  public function limparCarrinho() {
+    $this->limparCarrinho();
   }
 
   // public function rmCarrinho($id) {

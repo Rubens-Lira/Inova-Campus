@@ -72,8 +72,9 @@ class Product {
     
     public function listAll($offset = 0): mixed {
         $table = $this->table;
+        $user = "inv_users";
     
-        $query = "SELECT * FROM {$table} ORDER BY pdt_name ASC LIMIT 20 OFFSET :offset";
+        $query = "SELECT *, usr_phone FROM {$table} JOIN {$user} ON pdt_user = usr_id ORDER BY pdt_name ASC LIMIT 20 OFFSET :offset";
         $stmt = $this->conn->prepare($query);
         
         $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
@@ -163,5 +164,6 @@ class Product {
     public function setUser(int $user): self {
         $this->user = $user;
         return $this;
+    
     }
 }
