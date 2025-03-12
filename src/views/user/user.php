@@ -20,13 +20,6 @@
         <!-- <p><strong>Senha:</strong> ********</p> -->
         <p><strong>Número do Whatsapp:</strong> <?= $_SESSION['user']['tel'] ?></p>
     </div>
-
-    <hr>
-    <h3>Informações do Vendedor</h3>
-    <ul>
-        <!-- <li><a href="#">Número de vendas e avaliações</a></li> -->
-        <li><a href="index.php?action=product-list&offset=0">Veja seus produtos</a></li>
-
-    </ul>
+        <a href="index.php?action=product-list&offset=0" class="produtos">Veja seus produtos</a>
     <a href="index.php?action=logout" class="logout-btn">Sair da conta</a>
 </div>
