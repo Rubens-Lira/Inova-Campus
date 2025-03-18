@@ -1,17 +1,18 @@
 <?php
 class Database
 {
-    private $db_host = "127.0.0.1:3306";
-    private $db_nome = "INOVA_CAMPUS";
-    private $db_user = "root";
-    private $db_senha = "root";
+    private $db_host = "127.0.0.1";
+    private $db_port = "5432"; // Porta padrão do PostgreSQL
+    private $db_nome = "Inova_campus";
+    private $db_user = "postgres"; // Usuário padrão do PostgreSQL
+    private $db_senha = "root"; // Defina sua senha
     private $conn = null;
 
     public function getConnection(): PDO
     {
         try {
             $this->conn = new PDO(
-                "mysql:host={$this->db_host};dbname={$this->db_nome};charset=utf8mb4",
+                "pgsql:host={$this->db_host};port={$this->db_port};dbname={$this->db_nome}",
                 $this->db_user,
                 $this->db_senha
             );
@@ -25,6 +26,7 @@ class Database
     }
 }
 
+// Criando instância e conectando
 $conn = new Database();
-
 $conn->getConnection();
+?>
